@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "types": ["chrome", "node"],
+    "baseUrl": "./src",
+    "paths": {
+      "@content/*": ["content/*"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+  "include": ["src", "tests", "vite.config.mts"],
+  "exclude": ["node_modules", "dist"]
+}

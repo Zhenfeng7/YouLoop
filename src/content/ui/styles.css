@@ -1,0 +1,116 @@
+.yl-loop-button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.yl-loop-button:hover {
+  opacity: 1;
+}
+
+.yl-loop-button.is-active {
+  color: #00e5ff;
+  opacity: 1;
+}
+
+.yl-loop-button.is-suspended {
+  opacity: 0.4;
+}
+
+.yl-loop-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.yl-loop-dropdown {
+  position: absolute;
+  right: 12px;
+  bottom: 56px;
+  background: rgba(33, 33, 33, 0.95);
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 13px;
+  min-width: 170px;
+  max-width: 210px;
+  width: max-content;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  display: none;
+  z-index: 3000;
+}
+
+.yl-loop-dropdown.is-visible {
+  display: block;
+}
+
+.yl-loop-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.yl-loop-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.2;
+}
+
+.yl-loop-field {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.yl-loop-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 4px;
+  color: #fff;
+  width: 46px;
+  text-align: center;
+  -moz-appearance: textfield;
+  font-variant-numeric: tabular-nums;
+}
+
+.yl-loop-input:focus {
+  outline: none;
+  border-color: #00e5ff;
+}
+
+.yl-loop-input::-webkit-outer-spin-button,
+.yl-loop-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.yl-loop-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.yl-loop-actions button {
+  flex: 1;
+  background: rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 4px;
+  color: #fff;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.yl-loop-actions button[type="button"] {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
