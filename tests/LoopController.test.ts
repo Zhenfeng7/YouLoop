@@ -79,4 +79,28 @@ describe('LoopController', () => {
     expect(controller.startLoop()).toBe(false);
     expect(controller.isLoopActive()).toBe(false);
   });
+
+  it('jumps to start if current time is before start when starting loop', () => {
+    const video = createMockVideo();
+    video.currentTime = 0;
+    const controller = new LoopController({ toleranceSeconds: 0 });
+    controller.setVideoElement(video);
+    controller.updateConfig({ startTime: 5, endTime: 10 });
+
+    controller.startLoop();
+    expect(video.currentTime).toBe(5);
+  });
+
+  it('stops loop if user seeks outside the segment', () => {
+    const video = createMockVideo();
+    const controller = new LoopController({ toleranceSeconds: 0 });
+    controller.setVideoElement(video);
+    controller.updateConfig({ startTime: 5, endTime: 10 });
+    controller.startLoop();
+
+    video.currentTime = 12; // outside end
+    video.emit('timeupdate');
+
+    expect(controller.isLoopActive()).toBe(false);
+  });
 });

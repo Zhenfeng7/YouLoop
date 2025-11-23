@@ -27,6 +27,12 @@ export class LoopController {
     const { startTime, endTime } = this.config;
     if (startTime == null || endTime == null) return;
 
+    // If user seeks outside the segment, deactivate the loop.
+    if (video.currentTime < startTime - this.toleranceSeconds || video.currentTime > endTime + this.toleranceSeconds) {
+      this.stopLoop('user');
+      return;
+    }
+
     if (video.currentTime >= endTime - this.toleranceSeconds) {
       video.currentTime = startTime;
       if (video.paused) {
@@ -73,6 +79,10 @@ export class LoopController {
       }
     }
     if (this.active) return true;
+
+    if (this.video.currentTime < startTime - this.toleranceSeconds || this.video.currentTime > endTime + this.toleranceSeconds) {
+      this.video.currentTime = startTime;
+    }
 
     this.video.addEventListener('timeupdate', this.handleTimeUpdate);
     this.active = true;
